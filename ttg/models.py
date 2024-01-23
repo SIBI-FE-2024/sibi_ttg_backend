@@ -32,12 +32,3 @@ class Gesture(models.Model):
     class Meta:
         ordering = ["index"]
 
-class Subtitle(models.Model):
-    index = models.AutoField(primary_key=True)
-    url = models.URLField(max_length=2048)
-    subtitle = models.TextField()
-    asrtype = models.CharField(max_length=10, blank=True)
-    duration = models.CharField(max_length=11, blank=True)
-
-    class Meta:
-        ordering = ["index"]

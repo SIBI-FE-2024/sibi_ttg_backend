@@ -3,8 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('add', views.add_gesture, name='request_gesture'),
-    path('get_subtitle', views.get_subtitle, name='get_subtitle'),
+    path('add_gesture', views.add_gesture, name='request_gesture'),
     path('get_task', views.get_task, name='get_task'),
     path('get_gesture', views.get_gesture, name='get_gesture'),
     path('get_running_gesture', views.get_running_gesture, name='get_running_gesture'),

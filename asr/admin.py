@@ -3,24 +3,15 @@ from django_q.models import Task
 from . import models
 
 
-class TaskAdmin(admin.ModelAdmin):
-    list_display = ("name", "id", "started", "stopped", "time_taken", "success")
+class SubtitleAdmin(admin.ModelAdmin):
+    list_display = ("index", "url", "subtitle", "asrtype", "duration")
 
     def has_add_permission(self, request):
-        """Don't allow adds."""
-        return False
-
-    search_fields = ("name", "id")
-
-
-class GestureAdmin(admin.ModelAdmin):
-    list_display = ("index", "url", "status")
-    readonly_fields = ("url", "final_url", "subtitle", "status", "duration", "generated_duration", "words", "words_not_found", "characters_not_found")
-
-    def has_add_permission(self, request):
-        """Don't allow adds."""
-        return False
+        return True
+    
+    def has_change_permission(self, request):
+        return True
 
 
-admin.site.register(Task, TaskAdmin)
-admin.site.register(models.Gesture, GestureAdmin)
+admin.site.register(models.Subtitle, SubtitleAdmin)
+
